@@ -137,7 +137,7 @@ sentinel auth-pass master1 foobared
 ```
 * port : 代表 Sentinel Port 的位置，通常大家都會用 26379
 * bind : 這很重要，至少要加上 127.0.0.1，不然會因為通訊的原因，而造成不斷的去嘗試切換 Master 和 Slave，如果有三台 Sentinel ，後面也要加上這台的 IP，真的不想加這行，也可以把安全模式關閉，改成　protected-mode no
-* sentinel monitor : 要監控的 Master ip 和 port，其中 master1 是自訂名稱。
+* sentinel monitor : 要監控的 Master ip 和 port，其中 master1 是自訂名稱。最後數字1表示如果有1個sentinel認為master掛了，則這個master即認為不可用；所以有兩臺以上sentinel要去改此數字
 * down-after-milliseconds : 如果在幾毫秒內， 没有回應 sentinel ， 那麼 Sentinel 就會將這台標記為下線 SDOWN （ subjectively down )
 * failover-timeout : 轉移過程多久沒完成，算失敗。
 * parallel-syncs 在轉移過程，有多少台會和 Master 同步資料， 數字越小，完成轉移的時間越長
