@@ -1,0 +1,7 @@
+appendonly.aof
+dump.rdb
+redis-5*
+*.tar.gz
+nodes_*.conf
+Redis-x64-3.0.504
+Redis-x64-3.0.504.*
